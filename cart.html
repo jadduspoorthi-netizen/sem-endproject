@@ -4,6 +4,31 @@
 <title>Cart</title>
 
 <link rel="stylesheet" href="gro.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+.checkout-form {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 10px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.checkout-form button {
+    margin-top: 10px;
+}
+</style>
+
 </head>
 
 <body>
@@ -27,7 +52,18 @@
 
 <div class="actions">
 <button class="clear" onclick="clearCart()">Clear Cart</button>
-<button class="checkout" onclick="checkout()">Checkout</button>
+</div>
+
+<!-- ✅ NEW CHECKOUT FORM -->
+<div class="checkout-form">
+<h3>Delivery Details</h3>
+
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="email" id="email" placeholder="Email Address" required>
+<textarea id="address" placeholder="Delivery Address" rows="3" required></textarea>
+
+<button class="checkout" onclick="checkout()">Place Order</button>
 </div>
 
 </div>
@@ -40,7 +76,6 @@ function displayCart(){
     let total = 0;
     container.innerHTML = "";
 
-    // EMPTY CART
     if(cart.length === 0){
         container.innerHTML = "<p class='empty'>Your cart is empty 🛒</p>";
         document.getElementById("total").innerText = "";
@@ -73,12 +108,10 @@ function displayCart(){
     });
 
     document.getElementById("total").innerText = "Total: ₹" + total;
-
-    // SAVE UPDATED CART
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// FIXED QUANTITY CHANGE
+// CHANGE QTY
 function changeQty(index,change){
     cart[index].qty += change;
 
@@ -99,21 +132,57 @@ function removeItem(index){
 function clearCart(){
     if(confirm("Are you sure you want to clear cart?")){
         cart = [];
-        localStorage.setItem("cart", JSON.stringify(cart)); // IMPORTANT FIX
+        localStorage.setItem("cart", JSON.stringify(cart));
         displayCart();
     }
 }
 
-// CHECKOUT
+// ✅ NEW CHECKOUT FUNCTION WITH VALIDATION
 function checkout(){
+
     if(cart.length === 0){
         alert("Cart is empty!");
         return;
     }
 
-    alert("🎉 Order placed successfully!");
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let address = document.getElementById("address").value.trim();
+
+    // VALIDATION
+    if(name === "" || phone === "" || email === "" || address === ""){
+        alert("Please fill all delivery details!");
+        return;
+    }
+
+    if(phone.length < 10){
+        alert("Enter valid phone number!");
+        return;
+    }
+
+    // SAVE ORDER DETAILS (OPTIONAL)
+    let order = {
+        name,
+        phone,
+        email,
+        address,
+        cart
+    };
+
+    localStorage.setItem("orderDetails", JSON.stringify(order));
+
+    alert("🎉 Order placed successfully!\n\nThank you " + name);
+
     cart = [];
-    localStorage.setItem("cart", JSON.stringify(cart)); // IMPORTANT FIX
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // CLEAR FORM
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("address").value = "";
+
     displayCart();
 }
 
