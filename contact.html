@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<link rel="stylesheet" href="gro.css">
+</head>
+
+<body>
+
+<header>
+<h2>Contact Us</h2>
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="cart.html">Cart</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="container">
+
+  <!-- FORM -->
+  <div class="form-box">
+    <h2>Send Message</h2>
+    <form id="contactForm">
+
+      <div class="input-group">
+        <input type="text" id="name" placeholder=" ">
+        <label>Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" placeholder=" ">
+        <label>Email</label>
+      </div>
+
+      <div class="input-group">
+        <textarea id="message" placeholder=" "></textarea>
+        <label>Message</label>
+      </div>
+
+      <!-- Message area -->
+      <p id="formMsg"></p>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- INFO -->
+  <div class="info-box">
+    <h3>Contact Info</h3>
+    <p>📍 India</p>
+    <p>📞 9876543210</p>
+    <p>📧 grocery@gmail.com</p>
+    <p>⏰ 9 AM - 9 PM</p>
+  </div>
+
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews">
+<h2>⭐ Customer Reviews</h2>
+
+<div class="review-container">
+<div class="review">
+<p>"Super fast delivery 🚀"</p>
+<h4>- Riya</h4>
+</div>
+
+<div class="review">
+<p>"Fresh and organic products 🌿"</p>
+<h4>- Arjun</h4>
+</div>
+
+<div class="review">
+<p>"Best grocery website!"</p>
+<h4>- Sneha</h4>
+</div>
+</div>
+</section>
+
+<!-- VIDEO -->
+<div class="video">
+<h2>🎥 Watch Our Service</h2>
+<video width="300" controls>
+<source src="sample.mp4" type="video/mp4">
+</video>
+</div>
+
+<!-- MAP -->
+<iframe class="map"
+src="https://www.google.com/maps?q=india&output=embed">
+</iframe>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- LINK EXTERNAL JS -->
+<script src="gro.js"></script>
+
+</body>
+</html>

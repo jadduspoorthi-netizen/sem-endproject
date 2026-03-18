@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Products</title>
+
+<link rel="stylesheet" href="gro.css">
+</head>
+
+<body>
+
+<header>
+<h2>Grocery Products</h2>
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="cart.html">Cart <span id="cartCount" class="cart-count">0</span></a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search products...">
+</div>
+
+<div class="categories">
+<button onclick="filterCategory('all')">All</button>
+<button onclick="filterCategory('fruits')">Fruits</button>
+<button onclick="filterCategory('vegetables')">Vegetables</button>
+<button onclick="filterCategory('dairy')">Dairy</button>
+<button onclick="filterCategory('grains')">Grains</button>
+<button onclick="filterCategory('snacks')">Snacks</button>
+</div>
+
+<!-- FRUITS -->
+<div class="category-section fruits">
+<h2>Fruits</h2>
+<div class="products">
+<div class="product"><span class="heart" onclick="toggleHeart(this)">♡</span><img src="https://tse3.mm.bing.net/th/id/OIP.kzo22vGPqcf7d5w_QJhrfQHaFj?pid=Api&P=0&h=180"><h3>Apple</h3><p>₹100</p><button onclick="addToCart('Apple',100)">Add</button></div>
+
+<div class="product"><span class="heart" onclick="toggleHeart(this)">♡</span><img src="https://tse2.mm.bing.net/th/id/OIP.6Bioj1kGWoRrCiCfdJlxrQHaE8?pid=Api&P=0&h=180"><h3>Banana</h3><p>₹50</p><button onclick="addToCart('Banana',50)">Add</button></div>
+
+<div class="product"><span class="heart" onclick="toggleHeart(this)">♡</span><img src="https://tse3.mm.bing.net/th/id/OIP.vbUl57rKpg1aM-IHpKPoLAHaEK?pid=Api&P=0&h=180"><h3>Mango</h3><p>₹120</p><button onclick="addToCart('Mango',120)">Add</button></div>
+
+<div class="product"><span class="heart" onclick="toggleHeart(this)">♡</span><img src="https://cdn.pixabay.com/photo/2023/05/07/01/11/orange-7975373_1280.jpg"><h3>Orange</h3><p>₹80</p><button onclick="addToCart('Orange',80)">Add</button></div>
+
+<div class="product"><span class="heart" onclick="toggleHeart(this)">♡</span><img src="https://tse4.mm.bing.net/th/id/OIP.D6ixoz9FRKG2ahV35UVw3gHaEo?pid=Api&P=0&h=180"><h3>Grapes</h3><p>₹90</p><button onclick="addToCart('Grapes',90)">Add</button></div>
+
+<div class="product"><span class="heart" onclick="toggleHeart(this)">♡</span><img src="https://tse3.mm.bing.net/th/id/OIP.uUlbRCjimhX9a1cm8-mMwwHaEo?pid=Api&P=0&h=180"><h3>Pineapple</h3><p>₹110</p><button onclick="addToCart('Pineapple',110)">Add</button></div>
+</div>
+</div>
+
+<!-- VEGETABLES -->
+<div class="category-section vegetables">
+<h2>Vegetables</h2>
+<div class="products">
+<div class="product"><span class="heart">♡</span><img src="https://tse2.mm.bing.net/th/id/OIP.yiLFvVQG2KFNI37x3f5XGQHaE7?pid=Api&P=0&h=180"><h3>Tomato</h3><p>₹40</p><button onclick="addToCart('Tomato',40)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse3.mm.bing.net/th/id/OIP.VbmDVZoch2S1fXeq1f44qQHaE8?pid=Api&P=0&h=180"><h3>Potato</h3><p>₹30</p><button onclick="addToCart('Potato',30)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse1.mm.bing.net/th/id/OIP.K0LRzHRNQ2Gnt0EyQd9WrQHaEo?pid=Api&P=0&h=180"><h3>Onion</h3><p>₹35</p><button onclick="addToCart('Onion',35)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://images.pexels.com/photos/65174/pexels-photo-65174.jpeg?cs=srgb&dl=pexels-mali-65174.jpg&fm=jpg"><h3>Carrot</h3><p>₹45</p><button onclick="addToCart('Carrot',45)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse3.mm.bing.net/th/id/OIP.iknVRi_2c_75bblym4uLTwHaE8?pid=Api&P=0&h=180"><h3>Cabbage</h3><p>₹50</p><button onclick="addToCart('Cabbage',50)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://cdn.pixabay.com/photo/2016/07/16/16/30/spinach-1522283_1280.jpg"><h3>Spinach</h3><p>₹25</p><button onclick="addToCart('Spinach',25)">Add</button></div>
+</div>
+</div>
+
+<!-- DAIRY -->
+<div class="category-section dairy">
+<h2>Dairy</h2>
+<div class="products">
+<div class="product"><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWlsa3xlbnwwfHwwfHx8MA%3D%3D"><h3>Milk</h3><p>₹60</p><button onclick="addToCart('Milk',60)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse3.mm.bing.net/th/id/OIP.MV_lhHJ8PN0jmTMdc46--QHaHa?pid=Api&P=0&h=180"><h3>Cheese</h3><p>₹120</p><button onclick="addToCart('Cheese',120)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse1.mm.bing.net/th/id/OIP.NdOqnG3yV5TOWmlFVIOz8gHaE0?pid=Api&P=0&h=180"><h3>Butter</h3><p>₹110</p><button onclick="addToCart('Butter',110)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse1.mm.bing.net/th/id/OIP.5ZaA7S7T1XCbA5Rv25cDBQHaGc?pid=Api&P=0&h=180"><h3>Curd</h3><p>₹70</p><button onclick="addToCart('Curd',70)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse2.mm.bing.net/th/id/OIP.jG5K93QbpDtT_TcWEr_uCgHaEK?pid=Api&P=0&h=180"><h3>Paneer</h3><p>₹150</p><button onclick="addToCart('Paneer',150)">Add</button></div>
+</div>
+</div>
+
+<!-- GRAINS -->
+<div class="category-section grains">
+<h2>Grains</h2>
+<div class="products">
+<div class="product"><span class="heart">♡</span><img src="https://tse4.mm.bing.net/th/id/OIP.OjIbQURMkd9FabqoxudkeAHaFj?pid=Api&P=0&h=180"><h3>Rice</h3><p>₹70</p><button onclick="addToCart('Rice',70)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse2.mm.bing.net/th/id/OIP.drHEWqFcHgrdYFjyLwY11QHaE7?pid=Api&P=0&h=180"><h3>Wheat</h3><p>₹65</p><button onclick="addToCart('Wheat',65)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse1.mm.bing.net/th/id/OIP.4rLaDA6E5YIFyuV1eSHQ6QHaFj?pid=Api&P=0&h=180"><h3>Oats</h3><p>₹90</p><button onclick="addToCart('Oats',90)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse4.mm.bing.net/th/id/OIP.IiX09-1Hpv_XFbP_h9E2kQHaE6?pid=Api&P=0&h=180"><h3>Corn</h3><p>₹60</p><button onclick="addToCart('Corn',60)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse3.mm.bing.net/th/id/OIP.2ZY0Bs2EUMxJRR1_pJjy6AHaEK?pid=Api&P=0&h=180"><h3>Flour</h3><p>₹55</p><button onclick="addToCart('Flour',55)">Add</button></div>
+</div>
+</div>
+
+<!-- SNACKS -->
+<div class="category-section snacks">
+<h2>Snacks</h2>
+<div class="products">
+<div class="product"><span class="heart">♡</span><img src="https://tse4.mm.bing.net/th/id/OIP.AV5LfauVlOCZAc96z3k4aQHaE8?pid=Api&P=0&h=180"><h3>Biscuits</h3><p>₹30</p><button onclick="addToCart('Biscuits',30)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse1.mm.bing.net/th/id/OIP.JvPG8eoGH6yMGlcp8Xo4OAHaE7?pid=Api&P=0&h=180"><h3>Chips</h3><p>₹20</p><button onclick="addToCart('Chips',20)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse1.mm.bing.net/th/id/OIP.kyHwyyzkqNWPh-vPijT2FgHaFJ?pid=Api&P=0&h=180"><h3>Chocolate</h3><p>₹50</p><button onclick="addToCart('Chocolate',50)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://tse2.mm.bing.net/th/id/OIP.gTe2iVsNk11SzSp5DRNt0QHaE8?pid=Api&P=0&h=180"><h3>Noodles</h3><p>₹40</p><button onclick="addToCart('Noodles',40)">Add</button></div>
+
+<div class="product"><span class="heart">♡</span><img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnJ1aXQlMjBqdWljZXxlbnwwfHwwfHx8MA%3D%3D"><h3>Juice</h3><p>₹60</p><button onclick="addToCart('Juice',60)">Add</button></div>
+</div>
+</div>
+
+<div class="toast" id="toast">Added</div>
+
+<script src="gro.js"></script>
+
+
+</body>
+</html>

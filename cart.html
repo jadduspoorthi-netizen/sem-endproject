@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+
+<link rel="stylesheet" href="gro.css">
+</head>
+
+<body>
+
+<header>
+<h2>🛒 Your Cart</h2>
+<nav>
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="cart.html">Cart</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<div class="cart">
+<h2>Your Cart Items</h2>
+
+<div id="cartItems"></div>
+<div class="total" id="total"></div>
+
+<div class="actions">
+<button class="clear" onclick="clearCart()">Clear Cart</button>
+<button class="checkout" onclick="checkout()">Checkout</button>
+</div>
+
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function displayCart(){
+    let container = document.getElementById("cartItems");
+    let total = 0;
+    container.innerHTML = "";
+
+    // EMPTY CART
+    if(cart.length === 0){
+        container.innerHTML = "<p class='empty'>Your cart is empty 🛒</p>";
+        document.getElementById("total").innerText = "";
+        return;
+    }
+
+    cart.forEach((item,index)=>{
+        let div = document.createElement("div");
+        div.className = "cart-item";
+
+        let subtotal = item.price * item.qty;
+
+        div.innerHTML = `
+        <div class="item-info">
+        <strong>${item.name}</strong><br>
+        ₹${item.price} × ${item.qty} = <b>₹${subtotal}</b>
+        </div>
+
+        <div class="qty">
+        <button onclick="changeQty(${index},-1)">-</button>
+        ${item.qty}
+        <button onclick="changeQty(${index},1)">+</button>
+        </div>
+
+        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+
+        container.appendChild(div);
+        total += subtotal;
+    });
+
+    document.getElementById("total").innerText = "Total: ₹" + total;
+
+    // SAVE UPDATED CART
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// FIXED QUANTITY CHANGE
+function changeQty(index,change){
+    cart[index].qty += change;
+
+    if(cart[index].qty <= 0){
+        cart.splice(index,1);
+    }
+
+    displayCart();
+}
+
+// REMOVE ITEM
+function removeItem(index){
+    cart.splice(index,1);
+    displayCart();
+}
+
+// CLEAR CART
+function clearCart(){
+    if(confirm("Are you sure you want to clear cart?")){
+        cart = [];
+        localStorage.setItem("cart", JSON.stringify(cart)); // IMPORTANT FIX
+        displayCart();
+    }
+}
+
+// CHECKOUT
+function checkout(){
+    if(cart.length === 0){
+        alert("Cart is empty!");
+        return;
+    }
+
+    alert("🎉 Order placed successfully!");
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart)); // IMPORTANT FIX
+    displayCart();
+}
+
+// LOAD
+displayCart();
+</script>
+
+</body>
+</html>
